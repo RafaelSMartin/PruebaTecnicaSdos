@@ -2,6 +2,7 @@ package com.rsmartin.pruebatecnicasdos.presentation.view
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -37,6 +38,10 @@ class TecniActivity : AppCompatActivity() {
         tecniViewModel.taskResult.observe(this, Observer {
             val result = it ?: return@Observer
 
+            if(result.size != 0){
+                not_tasks.visibility = View.GONE
+            }
+
             rvTaskTecni.adapter = TaskAdapter(result, application)
         })
 
@@ -46,7 +51,7 @@ class TecniActivity : AppCompatActivity() {
             if (result != null) {
 
                 val sharedPreference = getSharedPreferences("PREFS", Context.MODE_PRIVATE)
-                var editor = sharedPreference.edit()
+                val editor = sharedPreference.edit()
                 editor.putBoolean("InsertOK", true)
                 editor.apply()
 

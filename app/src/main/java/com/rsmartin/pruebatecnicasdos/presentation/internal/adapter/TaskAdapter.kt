@@ -19,14 +19,14 @@ class TaskAdapter(val itemList: List<TaskEntity>, application: Application) :
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        var layoutInflate = LayoutInflater.from(parent.context)
+        val layoutInflate = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_tecni_layout, parent, false)
 
         return TaskViewHolder(layoutInflate)
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        var item = itemList[position]
+        val item = itemList[position]
         holder.bindPartido(item)
     }
 
@@ -45,7 +45,7 @@ class TaskAdapter(val itemList: List<TaskEntity>, application: Application) :
                 item.taskFinished = isChecked
                 taskRepository.updateTask(item)
             }
-            
+
         }
     }
 

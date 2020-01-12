@@ -15,15 +15,15 @@ class WebServiceAdapter(val itemList: List<WebServiceData>) :
     RecyclerView.Adapter<WebServiceAdapter.WebServiceViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WebServiceViewHolder {
-        var layoutInflate = LayoutInflater.from(parent.context)
+        val layoutInflate = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_layout, parent, false)
 
         return WebServiceViewHolder(layoutInflate)
     }
 
     override fun onBindViewHolder(holder: WebServiceViewHolder, position: Int) {
-        var item = itemList[position]
-        holder.bindPartido(item)
+        val item = itemList[position]
+        holder.bindWebService(item)
     }
 
     override fun getItemCount(): Int {
@@ -31,7 +31,7 @@ class WebServiceAdapter(val itemList: List<WebServiceData>) :
     }
 
     class WebServiceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindPartido(item: WebServiceData) {
+        fun bindWebService(item: WebServiceData) {
 
             if(item.farm_name == ""){
                 itemView.tvFarmName.text = item.category

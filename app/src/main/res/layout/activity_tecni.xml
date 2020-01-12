@@ -10,6 +10,17 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
+    <TextView
+        android:id="@+id/not_tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_taks_desc"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/rvTaskTecni"
+        app:layout_constraintEnd_toEndOf="@+id/rvTaskTecni"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTaskTecni"
         android:layout_width="match_parent"
